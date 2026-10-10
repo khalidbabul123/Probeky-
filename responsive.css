@@ -1,0 +1,391 @@
+/* Mobile layout refinements */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  touch-action: manipulation;
+}
+
+@media (max-width: 700px) {
+  .route-header {
+    padding: 20px;
+  }
+
+  .route-header .button {
+    font-size: 11px;
+    padding: 9px 10px;
+  }
+
+  .page-main {
+    padding: 76px 20px 64px;
+  }
+
+  .page-main h1 {
+    font-size: clamp(44px, 13vw, 64px);
+    letter-spacing: -2px;
+  }
+
+  .page-lead {
+    font-size: 17px;
+    margin-bottom: 36px;
+  }
+
+  .page-grid,
+    .page-split,
+    .service-showcase,
+    .service-checklist,
+    .service-panel {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .page-split {
+      gap: 28px;
+      margin-bottom: 38px;
+    }
+
+    .service-showcase {
+      margin-top: 14px;
+      margin-bottom: 30px;
+    }
+
+    .service-tile,
+    .check-card,
+    .panel-copy,
+    .panel-metrics {
+      padding: 20px 18px;
+    }
+
+  .simple-footer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-card {
+    min-height: 0;
+  }
+
+  .industry-grid {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 30px;
+  }
+
+  .audit-band {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 20px;
+  }
+
+  .audit-band strong {
+    flex: 1 1 calc(100% - 56px);
+    font-size: 17px;
+  }
+
+  .audit-band .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-cta {
+    white-space: normal;
+  }
+
+  .site-header {
+    min-height: 78px;
+    padding: 0 16px;
+  }
+
+  .main-nav {
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    top: 72px;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    padding: 14px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    background: rgba(10, 16, 29, 0.96);
+    border-radius: 18px;
+    box-shadow: 0 30px 40px rgba(2, 6, 23, 0.65);
+    backdrop-filter: blur(18px);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px) scale(0.98);
+    transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  }
+
+  .main-nav.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  .main-nav a,
+  .main-nav .nav-dropdown {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(148, 163, 184, 0.08);
+  }
+
+  .main-nav .nav-dropdown { display: block; }
+  .main-nav .nav-dropdown .dropdown-menu {
+    position: static;
+    display: none;
+    width: 100%;
+    margin-top: 8px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+  .main-nav .nav-dropdown:hover .dropdown-menu,
+  .main-nav .nav-dropdown:focus-within .dropdown-menu,
+  .main-nav .nav-dropdown.open .dropdown-menu { display: flex; }
+
+  .menu-toggle {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    background: rgba(15, 23, 42, 0.6);
+    padding: 0;
+    cursor: pointer;
+    position: relative;
+    z-index: 40;
+  }
+
+  .menu-toggle span {
+    display: block;
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    border-radius: 2px;
+    background: #f8fafc;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+
+  .menu-toggle span:first-child { transform: translateY(-6px); }
+  .menu-toggle span:last-child { transform: translateY(6px); }
+
+  .menu-toggle[aria-expanded="true"] span:first-child { transform: rotate(45deg); }
+  .menu-toggle[aria-expanded="true"] span:last-child { transform: rotate(-45deg); }
+  .menu-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+
+  .hero,
+  .about,
+  .section-intro {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(42px, 12vw, 58px);
+    line-height: .98;
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-actions .button {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-visual {
+    height: 330px;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .dashboard-card {
+    width: min(100%, 390px);
+    margin: 0 auto;
+  }
+
+  .dashboard-top,
+  .growth-number,
+  .dashboard-stats {
+    min-width: 0;
+  }
+
+  .dashboard-top {
+    gap: 10px;
+    font-size: 11px;
+  }
+
+  .dashboard-top .period {
+    white-space: nowrap;
+  }
+
+  .growth-number strong {
+    font-size: 28px;
+  }
+
+  .float-card {
+    max-width: 152px;
+  }
+
+  .trust-strip,
+  .site-footer {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .trust-list {
+    width: 100%;
+  }
+
+  .service-card,
+  .testimonial {
+    min-width: 0;
+  }
+
+  .contact-form-wrap {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .form-row {
+    gap: 0;
+  }
+
+  .form-submit {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-top {
+    align-items: flex-start;
+  }
+
+  .socials {
+    flex-shrink: 0;
+  }
+
+  .whatsapp {
+    width: 48px;
+    height: 48px;
+    right: 14px;
+    bottom: 14px;
+  }
+
+  .whatsapp img {
+    width: 21px;
+    height: 21px;
+    display: block;
+    filter: brightness(0) invert(1);
+  }
+
+  .socials {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .hero,
+  .about,
+  .section-intro {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section-padding {
+    padding-top: 72px;
+    padding-bottom: 72px;
+  }
+
+  .hero-copy h1 {
+    font-size: 43px;
+  }
+
+  .hero-text {
+    max-width: 31ch;
+  }
+
+  .hero-visual {
+    height: 300px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .dashboard-card {
+    padding: 14px 12px;
+  }
+
+  .dashboard-stats {
+    font-size: 11px;
+  }
+
+  .dashboard-stats b {
+    font-size: 15px;
+  }
+
+  .float-card {
+    transform: scale(.72);
+  }
+
+  .float-card-one {
+    left: 0;
+  }
+
+  .float-card-two {
+    right: 0;
+  }
+
+  .process-line {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stat strong {
+    font-size: 37px;
+  }
+
+  .footer-bottom {
+    font-size: 11px;
+  }
+
+  .whatsapp {
+    width: 46px;
+    height: 46px;
+    right: 12px;
+    bottom: 12px;
+  }
+}
